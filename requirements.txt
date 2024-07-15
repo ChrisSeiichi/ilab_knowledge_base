@@ -1,0 +1,5 @@
+requests==2.32.3
+beautifulsoup4==4.12.3
+html2text==2024.2.26
+python-dotenv
+ibm-cloud-sdk-core==3.20.3
