@@ -1,0 +1,68 @@
+version: 1
+task_description: 'Teach the model about IBM Watson OpenScale'
+created_by: saragolestaneh
+domain: technical_manual
+seed_examples:
+  - question: What is feedback data and how can I provide it in OpenScale?
+    answer: |
+      The feedback data is like providing an answer sheet with actual observed outcomes.
+      The monitor can run the model as if the answers are not known, then compare the predicted outcomes to the actual
+      outcomes and provide accuracy scores based on quality metrics.To provide the feedback data you will use to
+      evaluate the model click the Endpoints page and do one of the following:
+      Click Upload feedback data and upload a file with labeled data.
+      Click the Endpoints tab and specify an endpoint that connects to the feedback data source.
+  - question: What fairness metrics does OpenSclae support?
+    answer: |
+      Disparate impact, Statistical parity difference, False negative rate difference, False positive rate difference,
+      False discovery rate difference, 
+      False omission rate difference, Error rate difference, Average odds difference, Average absolute odds difference
+  - question: How can I view local explanations in OpenScale?
+    answer: |
+      Watson OpenScale provides different methods that you can use to view local explanations.
+      When you review evaluation results, you can select the Number of explanations link to open the Select an
+      explanation window.
+      Select an explanation window displays
+      In the Action column select Explain to display the Transaction details page. The Transactions details provides
+      different explanations, depending on which explanation methods and model types that you use.
+      For categorical models, on the Explain tab, the Transaction details page provides an analysis of the features
+      that influenced the outcome of the transaction with the local explanation method that you use. For SHAP, you can
+      select the background data that you use in the Background data menu to regenerate the explanation.
+      Transaction details
+      On the Inspect tab, Watson OpenScale generates advanced contrastive explanations for binary classification
+      models that you can use to experiment with features by changing the values to see whether the outcome changes.
+      Transaction details on the inspect tab show values that might produce a different outcome
+      You can also view different explanations for the following type of transactions:
+      Explaining image transactions
+      Explaining unstructured text transactions
+      Explaining tabular transactions
+  - question: When reviewing evaluations for explainability, which details can we view in OpenScale?
+    answer: |
+      When you review evaluation results for explainability, you can view the following details:
+
+      Feature influence : The most important features in descending order of the average absolute SHAP values
+      Distribution : The SHAP values for distribution of each feature
+      Comparison : The change in features influence between current global and baseline global explanation.
+  - question: What types of evaluations can I configure in OpenScal?
+    answer: |
+      If you're using the Watson OpenScale service, you can configure the following types of evaluations:
+
+      Quality
+      Evaluates how well your model predicts correct outcomes that match labeled test data.
+      Fairness
+      Evaluates whether your model produces biased outcomes that provide favorable results for one group over another.
+      Drift
+      Evaluates how your model changes in accuracy and data consistency by comparing recent transactions to your
+      training data.
+      Drift v2
+      Evaluates changes in your model output, the accuracy of your predictions, and the distribution of your 
+      input data.
+      Model health
+      Evaluates how efficiently your model deployment processes your transactions.
+      You can also create custom evaluations and metrics to generate a greater variety of insights about your model
+      performance.
+
+document:
+  repo: https://github.com/ChrisSeiichi/ilab_knowledge_base.git
+  commit: e7753bc
+  patterns:
+    - openscale_documentation.md
