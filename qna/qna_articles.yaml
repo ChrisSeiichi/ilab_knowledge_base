@@ -1,0 +1,31 @@
+version: 2
+task_description: 'Teach the model about IBM Watson OpenScale'
+created_by: reyhaneh
+domain: technical_manual
+seed_examples:
+  - question: What is IBM Watson Openscale used for?
+    answer: |
+      IBM AI OpenScale is an offering from IBM which allows enterprises to monitor their models and detect biases at runtime. This continuously monitors the deployed models and analyses its behaviour to detect and report any kind of biases.
+  - question: How does IBM Watson Openscale help fix bias throughout machine learning lifecycle?
+    answer: |
+      IBM AI OpenScale not only detects biases, but it also finds the root cause of the bias. It also provides data which can be sent for manual labelling to fix the bias. Thus it provides the guardrails to ensure that the models continue to act in a fair and unbiased manner throughout their lifecycle.
+  - question: What are the two types of explanations IBM Watson Openscale provides?
+    answer: |
+      1- LIME based explanations: It makes use of the LIME algorithm to find out the list of features which contributed positively or negatively for a prediction 2- Contrastive explanations: This is a proprietary IBM Research technology which helps to explain the behaviour of the model in the vicinity of the data point for which we need an explanation.
+  - question: How does bias detection work in IBM Watson Openscale?
+    answer: |
+      IBM Watson OpenScale helps in detection of Bias at run time. It monitors the data which has been sent to the model as well as the model prediction (this data is called as Payload data). It then identifies bias issues and notifies them to the user.
+  - question: What are the de-biasing steps in IBM Watson Openscale?
+    answer: |
+      1- Learning Phase: Learning customer model behaviour to understand when it acts in a biased manner. 2- Application Phase: Identifying whether the customer’s model will act in a biased manner on a given data point and if needed, fixing the bias.
+  - question: what is the learning phase in watson openscale de-biasing?
+    answer: |
+      In the learning phase, IBM Watson OpenScale looks at the predictions done by the model and identifies if the model is acting in a biased manner. E.g., if for a Female customer the model predicts “Loan Denied”, we flip the gender to Male keeping all the other feature values same and send it back to the model. If the model predicts “Loan Approved”, then we know that the customer model is acting in a biased manner against Females. We identify such data points where the customer model acts in a biased manner. Using this information we build another AI model (called bias prediction model) which takes in input a data point and is able to predict whether the customer’s model is going to act in a biased manner or not on that data point.
+  - question: In watson openscale, what’s the difference between active and passive de-biasing?
+    answer: |
+      In Passive Debiasing, de-biasing will run after the payload data has been logged and the application making use of the model is not impacted. IBM Watson OpenScale also supports Active De-biasing where we provide a REST end point. This REST end point will have to be used by the application for scoring the customer model and it will internally do debiasing. If the bias prediction model suggests that the customer model is not going to act in a biased manner, then it simply returns the output of the customer model as the debiased output. Thus with Active de-biasing, the application will get de-biased output on the fly. Passive de-biasing is a very good capability for customers to gain confidence in the de-biasing capabilities and then switch to using active de-biasing.
+document:
+  repo: https://github.ibm.com/christophe-martin/ilab_knowledge_base
+  commit: e7753bc
+  patterns:
+    - openscale_articles.md
