@@ -1,5 +1,16 @@
+# knowledge crawler
 requests==2.32.3
 beautifulsoup4==4.12.3
 html2text==2024.2.26
 python-dotenv
 ibm-cloud-sdk-core==3.20.3
+selenium==4.25.0
+PyYAML==6.0.2
+# langchain
+langchain_core==0.3.8
+langchain==0.3.2
+langgraph==0.2.34
+langchain-ibm==0.2.1
+langchain-community==0.3.1
+unstructured==0.15.13
+markdown==3.7
