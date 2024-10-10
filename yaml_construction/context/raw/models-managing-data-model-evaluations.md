@@ -1,0 +1,34 @@
+# Managing data for model evaluations
+
+Last Updated: 2024-10-03
+
+To enable model evaluations, you must prepare your data for logging to generate insights.
+
+You must provide your model data in a supported format to enable model evaluations. Your model transactions are processed logged in the data mart. The data mart is the logging database that stores the data that is used for model evaluations. If you [enable batch processing](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-batch-ui-sdk.html) for the Watson OpenScale service , you can also log data with your own data pipeline. The following sections describe the different types of data that are logged for model evaluations:
+
+## Training data[](/docs/en/cloud-paks/cp-data/5.0.x?topic=models-managing-data-model-evaluations#training-data "Copy to clipboard")
+
+You must provide training data to generate the statistics that you need to configure model evaluations. Training data contains labeled feature columns that Watson OpenScale measures to determine their impact on model outcomes and a prediction column that contains the outcome that the model is trained to predict. The following example shows training data from the [German Credit Risk dataset](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-auto-setup.html#sample-overview):
+
+![CSV file of training data for Watson OpenScale](/docs/en/SSQNUZ_5.0.x/wsj/model/images/WOS_training_data.png)
+
+To enable model evaluations, you must [connect your training data](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-model-details.html#mo-work-model-dets-training-data) to Watson OpenScale. The training data for your model must be provided in a format that Watson OpenScale understands. For more information, see [Managing training data](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-manage-training-data.html).
+
+## Payload data[](/docs/en/cloud-paks/cp-data/5.0.x?topic=models-managing-data-model-evaluations#payload-data "Copy to clipboard")
+
+Payload data contains the input and output transactions for your deployment. To configure evaluations, the payload data from your model is stored in a payload logging table. The payload logging table contains the feature and prediction columns that exist in your training data and a prediction probability column that contains the model's confidence in the prediction that it provides. The table also includes timestamp and ID columns to identify each scoring request that you send to the service that you're using as shown in the following example:
+
+![Python SDK sample output of payload logging table](/docs/en/SSQNUZ_5.0.x/wsj/model/images/wos-ntbok.png)
+
+You must send scoring requests to provide a log of your model transactions. For more information, see [Managing payload data](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-payload-logging.html).
+
+## Feedback data[](/docs/en/cloud-paks/cp-data/5.0.x?topic=models-managing-data-model-evaluations#feedback-data "Copy to clipboard")
+
+Feedback data is labeled data that matches the structure of training data and includes known model outcomes that are compared to your model predictions to measure the accuracy of your model. You must upload feedback data regularly to continuously measure the accuracy of your model predictions. For more information, see [Managing feedback data](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-manage-feedback-data.html).
+
+## Learn more[](/docs/en/cloud-paks/cp-data/5.0.x?topic=models-managing-data-model-evaluations#learn-more "Copy to clipboard")
+
+  * [Managing payload data](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-manage-payload-data.html)
+  * [Managing training data](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-manage-training-data.html)
+  * [Managing feedback data](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-manage-feedback-data.html)
+  * [Sending model transactions](/docs/en/SSQNUZ_5.0.x/wsj/model/wos-send-model-transactions.html)
